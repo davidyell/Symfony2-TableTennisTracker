@@ -34,9 +34,16 @@ class Result
     protected $side;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     */
+    protected $score;
+
+    /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -47,22 +54,47 @@ class Result
      * Set side
      *
      * @param \PingPong\Bundle\PlayerBundle\Entity\Side $side
+     *
      * @return Result
      */
     public function setSide(\PingPong\Bundle\PlayerBundle\Entity\Side $side = null)
     {
         $this->side = $side;
-    
+
         return $this;
     }
 
     /**
      * Get side
      *
-     * @return \PingPong\Bundle\PlayerBundle\Entity\Side 
+     * @return \PingPong\Bundle\PlayerBundle\Entity\Side
      */
     public function getSide()
     {
         return $this->side;
+    }
+
+    /**
+     * Set score
+     *
+     * @param integer $score
+     * 
+     * @return Result
+     */
+    public function setScore($score)
+    {
+        $this->score = $score;
+
+        return $this;
+    }
+
+    /**
+     * Get score
+     *
+     * @return integer
+     */
+    public function getScore()
+    {
+        return $this->score;
     }
 }
