@@ -1,0 +1,5 @@
+ping_pong_player:
+    resource: "@PingPongPlayerBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
