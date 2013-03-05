@@ -40,6 +40,7 @@ class Department
      * @ORM\OneToMany(targetEntity="Player", mappedBy="department")
      */
     protected $players;
+    
     /**
      * Constructor
      */
@@ -86,7 +87,7 @@ class Department
      * Add players
      *
      * @param \PingPong\Bundle\PlayerBundle\Entity\Player $players
-     * 
+     *
      * @return Department
      */
     public function addPlayer(\PingPong\Bundle\PlayerBundle\Entity\Player $players)

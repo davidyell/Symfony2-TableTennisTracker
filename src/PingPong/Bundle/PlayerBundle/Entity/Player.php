@@ -8,6 +8,7 @@
 namespace PingPong\Bundle\PlayerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Player object
@@ -30,6 +31,7 @@ class Player
      * @var string
      *
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
     protected $firstName;
 
@@ -37,6 +39,7 @@ class Player
      * @var string
      *
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
     protected $lastName;
 
@@ -51,6 +54,8 @@ class Player
      * @var string
      *
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @Assert\Email(message="Please enter a valid email address", checkMX=true)
      */
     protected $email;
 
@@ -74,15 +79,16 @@ class Player
      * @ORM\Column(type="integer")
      * @ORM\ManyToOne(targetEntity="Department", inversedBy="players")
      */
-    protected $department;
+    protected $department; // TODO: app/console doctrine:schema:validate
 
     /**
-     * @var object
-     *
-     * @ORM\Column(type="integer")
-     * @ORM\ManyToOne(targetEntity="Side", inversedBy="players")
+     * Construct the class and set any defaults
      */
-    protected $side;
+    public function __construct()
+    {
+        $this->performanceRating = 1500;
+    }
+
 
     /**
      * Get id
@@ -242,7 +248,7 @@ class Player
      * Set department
      *
      * @param integer $department
-     * 
+     *
      * @return Player
      */
     public function setDepartment($department)
@@ -260,28 +266,5 @@ class Player
     public function getDepartment()
     {
         return $this->department;
-    }
-
-    /**
-     * Set side
-     *
-     * @param integer $side
-     * @return Player
-     */
-    public function setSide($side)
-    {
-        $this->side = $side;
-
-        return $this;
-    }
-
-    /**
-     * Get side
-     *
-     * @return integer
-     */
-    public function getSide()
-    {
-        return $this->side;
     }
 }

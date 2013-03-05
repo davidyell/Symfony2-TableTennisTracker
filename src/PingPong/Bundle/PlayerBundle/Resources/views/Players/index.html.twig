@@ -1,0 +1,25 @@
+{% extends "PingPongPlayerBundle::layout.html.twig" %}
+
+{% block content %}
+    <h2>Players</h2>
+    <p><a href="{{ path('players_add') }}" title="Add player" class="btn">Add player</a></p>
+
+    <table summary="player_list" class="table table-bordered table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Department</th>
+        </tr>
+        {% for player in players %}
+            <tr>
+                <td>
+                    {{ player.firstName }}
+                        {% if player.nickName != '' %}
+                            "{{ player.nickName }}"
+                        {% endif %}
+                    {{ player.lastName }}
+                </td>
+                <td>{{ player.department.name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
