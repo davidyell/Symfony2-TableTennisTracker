@@ -12,11 +12,14 @@
         {% for player in players %}
             <tr>
                 <td>
+                    {% include 'PingPongPlayerBundle:Elements:player-avatar.html.twig' with {'player': player} %}
+                    <a href="{{ path('players_edit', {'id':player.id}) }}" title="View">
                     {{ player.firstName }}
                         {% if player.nickName != '' %}
                             "{{ player.nickName }}"
                         {% endif %}
                     {{ player.lastName }}
+                    </a>
                 </td>
                 <td>{{ player.department.name }}</td>
             </tr>

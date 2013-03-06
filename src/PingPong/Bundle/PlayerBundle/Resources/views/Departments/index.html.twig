@@ -1,0 +1,18 @@
+{% extends "PingPongPlayerBundle::layout.html.twig" %}
+
+{% block content %}
+    <h2>Departments</h2>
+
+    <table summary="department_list" class="table table-bordered table-striped">
+        <tr>
+            <th>Department</th>
+        </tr>
+        {% for department in departments %}
+            <tr>
+                <td>
+                    <a href="{{ path('departments_view', {'id':department.id}) }}" title="View">{{ department.name }}</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
