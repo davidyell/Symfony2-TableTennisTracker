@@ -46,7 +46,7 @@ class Player
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $nickName;
 
@@ -62,7 +62,7 @@ class Player
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $facebookId;
 
@@ -76,10 +76,11 @@ class Player
     /**
      * @var object
      *
-     * @ORM\Column(type="integer")
      * @ORM\ManyToOne(targetEntity="Department", inversedBy="players")
+     * @ORM\JoinColumn(name="department_id", referencedColumnName="id")
      */
-    protected $department; // TODO: app/console doctrine:schema:validate
+    protected $department;
+
 
     /**
      * Construct the class and set any defaults
@@ -88,7 +89,6 @@ class Player
     {
         $this->performanceRating = 1500;
     }
-
 
     /**
      * Get id

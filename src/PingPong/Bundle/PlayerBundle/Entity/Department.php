@@ -37,10 +37,10 @@ class Department
     /**
      * @var array
      *
-     * @ORM\OneToMany(targetEntity="Player", mappedBy="department")
+     * @ORM\OneToMany(targetEntity="PingPong\Bundle\PlayerBundle\Entity\Player", mappedBy="department")
      */
     protected $players;
-    
+
     /**
      * Constructor
      */
@@ -92,7 +92,7 @@ class Department
      */
     public function addPlayer(\PingPong\Bundle\PlayerBundle\Entity\Player $players)
     {
-        $this->players[] = $players;
+        $this->players->add($players);
 
         return $this;
     }

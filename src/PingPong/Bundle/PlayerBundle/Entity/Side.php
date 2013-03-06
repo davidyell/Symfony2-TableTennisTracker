@@ -36,8 +36,6 @@ class Side
 
     /**
      * @var object
-     *
-     * @ORM\OneToMany(targetEntity="Player", mappedBy="side")
      */
     protected $players;
 
