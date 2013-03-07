@@ -30,7 +30,8 @@ class Match
     /**
      * @var array
      *
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="MatchType")
+     * @ORM\JoinColumn(name="match_type_id", referencedColumnName="id")
      */
     protected $type;
 
@@ -117,7 +118,7 @@ class Match
      * Add sides
      *
      * @param \PingPong\Bundle\PlayerBundle\Entity\Side $sides
-     * 
+     *
      * @return Match
      */
     public function addSide(\PingPong\Bundle\PlayerBundle\Entity\Side $sides)

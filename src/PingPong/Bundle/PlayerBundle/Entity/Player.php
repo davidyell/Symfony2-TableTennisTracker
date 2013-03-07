@@ -81,7 +81,6 @@ class Player
      */
     protected $department;
 
-
     /**
      * Construct the class and set any defaults
      */

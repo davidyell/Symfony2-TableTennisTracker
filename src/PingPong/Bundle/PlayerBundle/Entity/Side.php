@@ -36,6 +36,12 @@ class Side
 
     /**
      * @var object
+     *
+     * @ORM\ManyToMany(targetEntity="Player")
+     * @ORM\JoinTable(name="players_sides",
+     *      joinColumns={@ORM\JoinColumn(name="player_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="side_id", referencedColumnName="id")}
+     *      )
      */
     protected $players;
 
