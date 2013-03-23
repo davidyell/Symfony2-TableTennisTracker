@@ -3,7 +3,31 @@
 {% block content %}
     <h2>Add match</h2>
     <form action="{{ path('matches_add') }}" method="post">
-        {{ form_widget(form) }}
+
+        {{ form_row(form.type) }}
+
+        <div class="players">
+            {{ form_widget(form.sides.vars.prototype.players) }}
+            {{ form_widget(form.sides.vars.prototype.players) }}
+            {{ form_widget(form.sides.vars.prototype.players) }}
+            {{ form_widget(form.sides.vars.prototype.players) }}
+        </div>
+
+        <div class="scores">
+            {{ form_widget(form.sides.vars.prototype.result) }}
+            {{ form_widget(form.sides.vars.prototype.result) }}
+        </div>
+
+
         <input type="submit" value="Save" class="btn">
     </form>
 {% endblock content %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(function() {
+
+        });
+    </script>
+{% endblock %}

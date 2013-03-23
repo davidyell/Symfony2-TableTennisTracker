@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use PingPong\Bundle\PlayerBundle\Form\MatchType;
 
 /**
  * MatchesController
@@ -42,9 +43,23 @@ class MatchesController extends Controller
      */
     public function addAction(Request $request)
     {
+        $matchForm = new MatchType();
+        $form = $this->createForm($matchForm);
+
+        if ($request->isMethod('post')) {
+            $form->bind($this->getRequest());
+
+            $m = $this->getDoctrine()->getManager();
+            $m->persist($form->getData());
+            $m->flush();
+
+            $this->get('session')->getFlashBag()->add('notice', 'Match saved');
+
+            return $this->redirect($this->generateUrl('matches_index'));
+        }
 
         return array(
-
+            'form' => $form->createView()
         );
     }
 

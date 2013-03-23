@@ -51,6 +51,7 @@ class Side
      * @ORM\OneToOne(targetEntity="Result", mappedBy="side")
      */
     protected $result;
+    
     /**
      * Constructor
      */
