@@ -1,6 +1,10 @@
 <?php
 /**
+<<<<<<< HEAD
  * Description of SideType
+=======
+ * SideType form
+>>>>>>> 1f576cdbfc749eff769acb158af9e4fa48f655be
  *
  * @author David Yell <neon1024@gmail.com>
  */
@@ -12,7 +16,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
- * The add a side form
+ * Side form object
  */
 class SideType extends AbstractType
 {
@@ -23,25 +27,25 @@ class SideType extends AbstractType
      */
     public function getName()
     {
-        return "pingpongplayerbundle_side_add";
+        return "pingpongplayerbundle_side";
     }
 
     /**
-     * Build the form fields
-     *
      * @param FormBuilderInterface $builder
      * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('players', 'entity', array(
-                        'class' => 'PingPongPlayerBundle:Player',
-                        'property' => 'firstName'
-                    ));
+        $builder->add('match')
+                ->add('players', 'entity', array(
+                    'class' => 'PingPongPlayerBundle:Player',
+                    'property' => 'firstName'
+                ))
+                ->add('result', 'integer');
     }
 
     /**
-     * Set the default entity for this form
+     * Set the default class
      *
      * @param OptionsResolverInterface $resolver
      */

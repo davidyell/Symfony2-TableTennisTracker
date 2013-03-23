@@ -1,6 +1,6 @@
 <?php
 /**
- * Description of MatchType
+ * MatchType form
  *
  * @author David Yell <neon1024@gmail.com>
  */
@@ -10,9 +10,10 @@ namespace PingPong\Bundle\PlayerBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use PingPong\Bundle\PlayerBundle\Form\SideType;
 
 /**
- * The match form
+ * Match form object
  */
 class MatchType extends AbstractType
 {
@@ -38,18 +39,18 @@ class MatchType extends AbstractType
                     'class' => 'PingPongPlayerBundle:MatchType',
                     'property' => 'name'
                 ))
-                ->add('notes')
                 ->add('sides', 'collection', array(
                     'type' => new SideType(),
                     'allow_add' => true,
-                    'by_reference' => false,
-                ));
+                    'by_reference' => false
+                ))
+                ->add('notes');
     }
 
     /**
-     * Set the default name for the form
+     * Set the default class
      *
-     * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
+     * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {

@@ -48,6 +48,7 @@ class Match
      * @ORM\OneToMany(targetEntity="Side", mappedBy="match")
      */
     protected $sides;
+    
     /**
      * Constructor
      */
