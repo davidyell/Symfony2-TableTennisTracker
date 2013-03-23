@@ -3,7 +3,12 @@
 {% block content %}
     <h2>Add match</h2>
     <form action="{{ path('matches_add') }}" method="post">
-        {{ form_widget(form) }}
+            {{ form_row(form.type) }}
+            {{ form_row(form.notes) }}
+            
+            {{ form_row(form.sides) }}
+
+            {{ form_rest(form) }}
         <input type="submit" value="Save" class="btn">
     </form>
 {% endblock content %}
