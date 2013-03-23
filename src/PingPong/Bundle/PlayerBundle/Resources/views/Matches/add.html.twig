@@ -6,16 +6,18 @@
         {{ form_row(form.type) }}
 
         <div class="players">
-            {{ form_widget(form.sides.vars.prototype.players) }}
-            {{ form_widget(form.sides.vars.prototype.players) }}
-            {{ form_widget(form.sides.vars.prototype.players) }}
-            {{ form_widget(form.sides.vars.prototype.players) }}
+            {{ form_row(form.sides.vars.prototype.players) }}
+            {{ form_row(form.sides.vars.prototype.players) }}
+            {{ form_row(form.sides.vars.prototype.players) }}
+            {{ form_row(form.sides.vars.prototype.players) }}
         </div>
 
         <div class="scores">
-            {{ form_widget(form.sides.vars.prototype.result) }}
-            {{ form_widget(form.sides.vars.prototype.result) }}
+            {{ form_row(form.sides.vars.prototype.result) }}
+            {{ form_row(form.sides.vars.prototype.result) }}
         </div>
+
+        {{ form_row(form.notes) }}
 
         <input type="submit" value="Save" class="btn">
     </form>

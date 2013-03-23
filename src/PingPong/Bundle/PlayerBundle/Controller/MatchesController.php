@@ -56,7 +56,6 @@ class MatchesController extends Controller
 
         if ($request->isMethod('post')) {
             $form->bind($this->getRequest());
-<<<<<<< HEAD
 
             $m = $this->getDoctrine()->getManager();
             $m->persist($form->getData());
@@ -64,15 +63,6 @@ class MatchesController extends Controller
 
             $this->get('session')->getFlashBag()->add('notice', 'Match saved');
 
-=======
-
-            $m = $this->getDoctrine()->getManager();
-            $m->persist($form->getData());
-            $m->flush();
-
-            $this->get('session')->getFlashBag()->add('notice', 'Match saved');
-
->>>>>>> 1f576cdbfc749eff769acb158af9e4fa48f655be
             return $this->redirect($this->generateUrl('matches_index'));
         }
 
