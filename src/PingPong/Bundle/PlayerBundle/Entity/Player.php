@@ -89,6 +89,10 @@ class Player
         $this->performanceRating = 1500;
     }
 
+    public function getShortName() {
+        return $this->firstName.' '.substr($this->lastName, 0, 1);
+    }
+
     /**
      * Get id
      *

@@ -24,7 +24,7 @@ class MatchType extends AbstractType
      */
     public function getName()
     {
-        return "pingpongplayerbundle_match_add";
+        return "pingpongplayerbundle_match";
     }
 
     /**

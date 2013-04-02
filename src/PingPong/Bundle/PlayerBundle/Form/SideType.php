@@ -1,10 +1,6 @@
 <?php
 /**
-<<<<<<< HEAD
- * Description of SideType
-=======
  * SideType form
->>>>>>> 1f576cdbfc749eff769acb158af9e4fa48f655be
  *
  * @author David Yell <neon1024@gmail.com>
  */
@@ -39,7 +35,7 @@ class SideType extends AbstractType
         $builder->add('match')
                 ->add('players', 'entity', array(
                     'class' => 'PingPongPlayerBundle:Player',
-                    'property' => 'firstName'
+                    'property' => 'shortName'
                 ))
                 ->add('result', 'integer');
     }
